@@ -3,6 +3,8 @@ package br.com.site.screenmatch.main;
 import br.com.site.screenmatch.model.*;
 import br.com.site.screenmatch.service.ConsumoApi;
 import br.com.site.screenmatch.service.ConverteDados;
+import io.github.cdimascio.dotenv.Dotenv;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -10,6 +12,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
+
+    Dotenv dotenv = Dotenv.load();
 
     private Scanner leitura = new Scanner(System.in);
 
@@ -19,7 +23,7 @@ public class Main {
 
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
 
-    private final String API_KEY = "&apikey=902024ae";
+    private final String API_KEY = "&apikey=" + dotenv.get(("OMDB_KEY"));
 
     private List<DadosSerie> dadosSeries = new ArrayList<>();
 

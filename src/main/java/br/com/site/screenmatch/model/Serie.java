@@ -1,5 +1,6 @@
 package br.com.site.screenmatch.model;
 
+import br.com.site.screenmatch.service.ConsumoApi;
 import com.fasterxml.jackson.annotation.JsonAlias;
 
 import java.util.Optional;
@@ -21,7 +22,7 @@ public class Serie {
         this.categoria = Categoria.fromString(dadosSerie.categoria().split(",")[0].trim());
         this.atores = dadosSerie.atores();;
         this.poster = dadosSerie.poster();
-        this.sinopse = dadosSerie.sinopse();
+        this.sinopse = ConsumoApi.traduzirComGroq(dadosSerie.sinopse());
     }
 
     public String getTitulo() {
