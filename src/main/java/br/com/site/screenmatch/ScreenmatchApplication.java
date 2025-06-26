@@ -4,8 +4,10 @@ import br.com.site.screenmatch.main.Main;
 import br.com.site.screenmatch.model.DadosEpisodio;
 import br.com.site.screenmatch.model.DadosSerie;
 import br.com.site.screenmatch.model.DadosTemporada;
+import br.com.site.screenmatch.repository.SerieRepository;
 import br.com.site.screenmatch.service.ConsumoApi;
 import br.com.site.screenmatch.service.ConverteDados;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +18,9 @@ import java.util.List;
 @SpringBootApplication
 public class ScreenmatchApplication implements CommandLineRunner {
 
+	@Autowired
+	private SerieRepository repositorio;
+
 	public static void main(String[] args) {
 
 		SpringApplication.run(ScreenmatchApplication.class, args);
@@ -24,7 +29,7 @@ public class ScreenmatchApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Main main = new Main();
+		Main main = new Main(repositorio);
 		main.exibeMenu();
 
 	}

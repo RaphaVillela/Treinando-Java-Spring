@@ -18,7 +18,7 @@ public class ConsumoApi {
 
         Dotenv dotenv = Dotenv.load();
 
-        String prompt = "Traduza para português o texto: " + texto;
+        String prompt = "Traduza para português brasileiro o texto: " + texto;
         String url = "https://api.groq.com/openai/v1/chat/completions";
         String groqKey = dotenv.get("GROQ_KEY");
         String groqModel = "llama3-70b-8192";
