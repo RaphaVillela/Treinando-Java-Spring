@@ -14,7 +14,7 @@ import java.net.http.HttpResponse;
 
 public class ConsumoApi {
 
-    public static String traduzirComGroq( String texto) {
+    public static String traduzirComGroq(String texto) {
 
         Dotenv dotenv = Dotenv.load();
 
